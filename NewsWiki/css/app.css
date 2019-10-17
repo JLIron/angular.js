@@ -1,0 +1,20 @@
+.titulo{
+    color: steelblue;
+}
+
+.banner{
+    height:200px;
+}
+
+.banner-small{
+    height:100px;
+}
+
+.centrar{
+    flex-direction: center;
+}
+
+.footer{
+    font-size: 15px;
+    color:darkgray;
+}

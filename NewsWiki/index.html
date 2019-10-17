@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News Wiki</title>
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Angular Scripts-->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-mocks.js"></script>
+    <script src="js/angular-resource.min.js"></script>
+    <script src="js/angular-ui-router.min.js"></script>
+    <script src="js/angular-locale_es-es.js"></script>
+    
+    <!--Application Script-->
+    <script src="app/app.js"></script>
+    <!-- Antes que bootstrap --> 
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/news/newsCtrl.js"></script>
+    <script src="app/categories/categoriesCtrl.js"></script>
+    <script src="app/news/newsDetailCtrl.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/common.servicesMock.js"></script>
+    <script src="common/services/categories/categoriesService.js"></script>
+    <script src="common/services/news/newsResource.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    
+
+</head>
+<body ng-app="newsWikiApp">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" ui-sref-active="active" ui-sref="home">NewsWiki</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" ui-sref-active="active">
+                <a class="nav-link" ui-sref="home"><i class="fas fa-home"></i></a>
+            </li>  
+            <li class="nav-item" ui-sref-active="active">
+              <a class="nav-link" ui-sref="newsList"><i class="far fa-newspaper"></i> Noticias <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" ui-sref-active="active">
+              <a class="nav-link" ui-sref="home"><i class="fas fa-plus"></i> Agregar Noticias</a>
+            </li>
+            
+           
+          </ul>
+         
+        </div>
+      </nav>
+    
+    <main class="container">
+
+        <div ui-view></div>
+
+    </main>
+
+</body>
+</html>

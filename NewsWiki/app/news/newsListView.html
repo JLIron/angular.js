@@ -1,9 +1,9 @@
-<div class="row d-flex align-items-center flex-column bd-highlight mb-3 mt-5"" ng-controller="CategoriesCtrl as vm">
-    <button ng-click="vm.toggleCategories()" class="btn btn-light mb-2">
-        {{ vm.showCategories? "Ocultar " : "Mostrar "}}Categorias
+<div class="row d-flex align-items-center flex-column bd-highlight mb-3 mt-5"" ng-controller="CategoriesCtrl as cc">
+    <button ng-click="cc.toggleCategories()" class="btn btn-light mb-2">
+        {{ cc.showCategories? "Ocultar " : "Mostrar "}}Categorias
     </button>
-    <div ng-show="vm.showCategories" class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary active" ng-repeat="cate in vm.categories">
+    <div ng-show="cc.showCategories" class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary" ng-repeat="cate in cc.categories">
             <input type="radio" name="options" id="{{cate}}" autocomplete="off" > {{cate}}
         </label>
     </div>

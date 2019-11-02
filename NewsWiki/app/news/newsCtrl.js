@@ -13,6 +13,15 @@
             me.news = data;
         });
 
+        me.onCategoryClick = function (category){
+            if (category){
+                me.filterCategory = category;
+            }else{
+                me.filterCategory = "";       
+            }
+            
+        }
+
     }   // NewsCtrl
         
 } ());

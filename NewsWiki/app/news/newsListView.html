@@ -3,8 +3,11 @@
         {{ cc.showCategories? "Ocultar " : "Mostrar "}}Categorias
     </button>
     <div ng-show="cc.showCategories" class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-secondary" ng-repeat="cate in cc.categories">
+        <label class="btn btn-secondary" ng-repeat="cate in cc.categories" ng-click="vm.onCategoryClick(cate)">
             <input type="radio" name="options" id="{{cate}}" autocomplete="off" > {{cate}}
+        </label>
+        <label class="btn btn-secondary active" ng-click="vm.onCategoryClick()">
+            <input type="radio" name="options" id="mostrarTodos" autocomplete="off" > Mostrar Todos
         </label>
     </div>
 </div>
@@ -18,7 +21,7 @@
 <div class="row col-md-12">
     
 
-    <div class="card-deck col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter: {destacado:true} | orderBy: '-fechaPublicacion'">
+    <div class="card-deck col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter: {destacado: true} | filter: {categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
 
             <div class="card p-2">
                 
@@ -50,7 +53,7 @@
 <div class="row col-md-12">
     
 
-    <div class="card-deck col-sm-4 col-md-3" ng-repeat="newsItem in vm.news | filter: {destacado:false} | orderBy: '-fechaPublicacion'">
+    <div class="card-deck col-sm-4 col-md-3" ng-repeat="newsItem in vm.news | filter: {destacado: false} | filter: {categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
 
             <div class="card p-2">
                 

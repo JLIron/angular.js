@@ -23,24 +23,26 @@
 
     <div class="card-deck col-sm-6 col-md-4" ng-repeat="newsItem in vm.news | filter: {destacado: true} | filter: {categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
 
-            <div class="card p-2">
-                
-                    <img ng-src="{{ newsItem.banner }}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">{{newsItem.tituloNoticia}}</h5>
-                        <p class="card-text">{{newsItem.descripcionNoticia.substring(0,200) + "..."}} </p>
-                    </div>
-                    <div class="p-2">
-                        <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary">Leer mas</a>
-                        <a href="#" class="btn btn-light">Editar</a>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <small class="text-muted">{{newsItem.fechaPublicacion | date}}</small>
-                    </div>
-                
-            </div> <!-- Card -->
-
+        <div class="card p-2">
+            
+            <img ng-src="{{ newsItem.banner }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{newsItem.tituloNoticia}}</h5>
+                <p class="card-text">{{newsItem.descripcionNoticia.substring(0,200) + "..."}} </p>
+            </div>
+            <div class="p-2">
+                <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary">Leer mas</a>
+                <a href="#" class="btn btn-light">Editar</a>
+            </div>
+            
+            <div class="card-footer">
+                <small class="text-muted">{{newsItem.fechaPublicacion | date}}</small>
+            </div>
+            
+        </div> <!-- Card -->
+        <div class="col-md-12" ng-show="(vm.news | filter: {destacado: true} | filter: {categoria: vm.filterCategory}).length == 0">
+            <p>No hay noticias destacadas que mostrar</p>
+        </div>
     </div>  
 </div>
 
@@ -55,23 +57,25 @@
 
     <div class="card-deck col-sm-4 col-md-3" ng-repeat="newsItem in vm.news | filter: {destacado: false} | filter: {categoria: vm.filterCategory} | orderBy: '-fechaPublicacion'">
 
-            <div class="card p-2">
-                
-                    <img ng-src="{{ newsItem.banner }}" class="card-img-top banner-small">
-                    <div class="card-body">
-                        <h6 class="card-title">{{newsItem.tituloNoticia}}</h6>
-                        <p class="card-text">{{newsItem.descripcionNoticia}} </p>
-                    </div>
-                    <div class="p-2">
-                        <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary btn-sm">Leer mas</a>
-                        <a href="#" class="btn btn-light btn-sm">Editar</a>
-                    </div>
-                    
-                    <div class="card-footer">
-                        <small class="text-muted">{{newsItem.fechaPublicacion | date}}</small>
-                    </div>
-                
-            </div> <!-- Card -->
-
+        <div class="card p-2">
+            
+            <img ng-src="{{ newsItem.banner }}" class="card-img-top banner-small">
+            <div class="card-body">
+                <h6 class="card-title">{{newsItem.tituloNoticia}}</h6>
+                <p class="card-text">{{newsItem.descripcionNoticia}} </p>
+            </div>
+            <div class="p-2">
+                <a ui-sref="newsDetail({idNoticia: newsItem.idNoticia})" class="btn btn-primary btn-sm">Leer mas</a>
+                <a href="#" class="btn btn-light btn-sm">Editar</a>
+            </div>
+            
+            <div class="card-footer">
+                <small class="text-muted">{{newsItem.fechaPublicacion | date}}</small>
+            </div>
+            
+        </div> <!-- Card -->
+        <div class="col-md-12">
+            <p>No hay noticias que mostrar</p>
+        </div>
     </div>  
 </div>

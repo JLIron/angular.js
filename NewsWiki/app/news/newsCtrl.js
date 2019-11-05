@@ -18,8 +18,7 @@
                 me.filterCategory = category;
             }else{
                 me.filterCategory = "";       
-            }
-            
+            }  
         }
 
     }   // NewsCtrl

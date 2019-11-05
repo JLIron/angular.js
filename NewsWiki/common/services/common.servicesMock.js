@@ -115,6 +115,25 @@
             return[200, newsItem, {}];
         });
 
+        $httpBackend.whenPOST(newsUrl).respond(function(method, url, data){
+            var newsItem = angular.fromJson(data);
+
+            if(!newsItem.idNoticia){
+                newsItem.idNoticia = news[news.length - 1].idNoticia + 1;
+                news.push(newsItem);
+            }else{
+                for (let i = 0; i < news.length; i++) {
+                    const element = news[i];
+                    if(element.idNoticia = newsItem.idNoticia){
+                        news[i] = newsItem;
+                        break;
+                    } 
+                }
+            }
+            
+            return[200, newsItem, {}];
+        });
+
         // Para que pueda acceder a las páginas de app
         $httpBackend.whenGET(/app/).passThrough();
 

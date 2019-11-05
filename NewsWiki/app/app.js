@@ -7,7 +7,9 @@
     var app = angular.module("newsWikiApp", 
                                     ["common.services", 
                                     "common.servicesMock",
-                                    "ui.router"]);
+                                    "ui.router",
+                                    "ui.mask",
+                                    "ui.bootstrap"]);
 
     app.config(function($stateProvider, $urlRouterProvider){
 

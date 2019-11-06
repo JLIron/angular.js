@@ -6,17 +6,33 @@
         <div class="form-group row">
             <label for="inputTituloNoticia" class="col-sm-2 col-form-label">Titulo</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputTituloNoticia" 
+                <input type="text" class="form-control" 
+                    id="inputTituloNoticia" 
+                    name="inputTituloNoticia" 
                     placeholder="Titulo de la noticia" 
-                    ng-model="vm.newsItem.tituloNoticia">
+                    ng-class="{'is-invalid' : newsForm.inputTituloNoticia.$invalid && newsForm.inputTituloNoticia.$dirty}"
+                    ng-minlength=6
+                    ng-maxlength=45
+                    ng-model="vm.newsItem.tituloNoticia" required>
+                <div class="invalid-feedback" ng-messages for="newsForm.inputTituloNoticia.$error"
+                                              ng-if=newsForm.inputTituloNoticia.$dirty>
+                    <span ng-message when="required">Ingrese un titulo para la noticia</span>
+                    <span ng-message when="minlength">Se admiten 6 caracteres como minimo</span>
+                    <span ng-message when="maxlength">Se admiten 45 caracteres como maximo</span>
+                </div>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputCodigoNoticia" class="col-sm-2 col-form-label">Código</label>
             <div class="col-sm-6 col-md-2" >
                 <input type="text" class="form-control" id="inputCodigoNoticia" 
+                    name="inputCodigoNoticia"
                     ui-mask="AAA-9999"
-                    ng-model="vm.newsItem.codigoNoticia">
+                    ng-class="{'is-invalid' : newsForm.inputCodigoNoticia.$invalid && newsForm.inputCodigoNoticia.$dirty}"
+                    ng-model="vm.newsItem.inputCodigoNoticia" required>
+                <div class="invalid-feedback">
+                    No puedes dejar el codigo vacio, ej. WER-3654.
+                </div>
             </div>
         </div>
         <div class="form-group row">

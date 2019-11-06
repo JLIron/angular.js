@@ -9,7 +9,8 @@
                                     "common.servicesMock",
                                     "ui.router",
                                     "ui.mask",
-                                    "ui.bootstrap"]);
+                                    "ui.bootstrap",
+                                    "ngMessages"]);
 
     app.config(function($stateProvider, $urlRouterProvider){
 
@@ -61,5 +62,18 @@
                 }
             })
     })                                
+
+    app.config(function ($provide) {
+        $provide.decorator("$exceptionHandler", ["$delegate", function ($delegate) {
+            return function(exception, cause){
+                exception.message = "Por favor, conectese con Help Desk! " +
+                "\n Message: " + exception.message;
+            $delegate(exception, cause);
+            //alert(exception.message);
+            toastr.error(exception.message);
+            }
+        }])
+
+    })
 
 } () );

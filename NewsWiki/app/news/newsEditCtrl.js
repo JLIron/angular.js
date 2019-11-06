@@ -25,6 +25,17 @@
             me.opened = !me.opened;
         }
 
+        me.addTags = function(tags){
+            // TODO Falla algo al borrar pasandole el index
+            var array = tags.split(',')
+            me.newsItem.tags = me.newsItem.tags ? me.newsItem.tags.concat(array) : array;  
+            me.newTags = "";
+        };
+
+        me.removeTags = function(idx){
+            me.newsItem.tags.splice(idx, 1)
+        };
+
         me.guardar = function (){
             me.newsItem.$save(function (data){
                 toastr.success('La noticia se ha guardado!', 'Miracle Max Says')
